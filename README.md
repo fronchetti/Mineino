@@ -1,7 +1,7 @@
 # Mineino
 Play Minecraft using an Arduino and Artificial Intelligence :roller_coaster:
 
-In this project, we simulate keyboard keys and mouse interactions in our operating system to play Minecraft. The keyboard keys are responsible for moving our player, and interacting with the blocks world. It is done using instructions from an joystick (Arduino), while the mouse is simulated using a face recognition system, used to move the player's camera. We simulate the mouse and the keyboard using Python, so, if you want to use our code in another game or experiment, it's easily possible to change our code.
+In this project, we simulate keyboard keys and mouse interactions in our operating system to play Minecraft. The keyboard keys are responsible for moving our player, and interacting with the blocks world. It is done using instructions from an joystick, while the mouse is simulated using a face recognition system, used to move the player's camera. We simulate the mouse and the keyboard using Python, so, if you want to use our code in another game or experiment, it's easily possible to change our code.
 
 ## Requirements:
 + 1 x Arduino UNO
