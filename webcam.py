@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-# Matéria: Computação Física
-# Autores: Felipe Fronchetti e Vinicius ribeiro
-# Tutorial:
+# Authors: Felipe Fronchetti and Vinicius ribeiro
+# Source code:
 # https://realpython.com/blog/python/face-detection-in-python-using-a-webcam/
 
 import cv2
@@ -10,61 +9,59 @@ from time import sleep
 from pynput.mouse import Button
 from pynput.mouse import Controller as ControllerMouse
 
-# Instância do mouse virtual
 mouse = ControllerMouse()
 
-cascPath = "haarcascade_frontalface_default.xml"
-faceCascade = cv2.CascadeClassifier(cascPath)
+cascade_xml = "haarcascade_xmlface_default.xml"
+cascade = cv2.CascadeClassifier(cascade_xml)
 video_capture = cv2.VideoCapture(0)
 
 while True:
-    # O código para de funcionar caso haja problemas com a câmera
     if not video_capture.isOpened():
-        print('Não foi possível abrir a câmera.')
+        print('We\'re not able to open your webcam :(!')
         pass
 
-    # Captura o vídeo frame por frame
+    # Capture the frames
     ret, frame = video_capture.read()
 
-    # Converte a captura de imagem pra tons de cinza
+    # Converts image capture to grayscale
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    # Detecta as faces na imagem
-    # minSize define o tamanho da face que ele vai capturar
-    faces = faceCascade.detectMultiScale(
+    # Recognizes the face
+    faces = cascade.detectMultiScale(
         gray,
         scaleFactor=1.1,
         minNeighbors=5,
-        minSize=(100, 100)  # Tamanho da cabeça (Felipe Size)
+        minSize=(100, 100)  # Size of each face recognized
     )
 
     height, width, channels = frame.shape
 
-    # Desenhamos linhas na imagem para melhor orientar o usuário
+    #  Draw lines in the image to better guide the player
     cv2.line(frame, (width / 2 - 50, height / 2),
              (width / 2 + 50, height / 2), (255, 255, 255), 2)
     cv2.line(frame, (width / 2, height / 2 + 50),
              (width / 2, height / 2 - 50), (255, 255, 255), 2)
 
     for (x, y, w, h) in faces:
-        # Desenha um retângulo em torno de cada face
+        # Draw a rectangle around each face
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
-        # Com base na posição da face, move o mouse no sistema
+        # Based on face position, moves the mouse
+        # Up and down
         if y > 180:
             mouse.move(0, 50)
         if y < 90:
             mouse.move(0, -50)
-
+        # Left and right
         if x > 250:
             mouse.move(80, 0)
         if x < 180:
             mouse.move(-80, 0)
 
-    # Apresenta o resultado em uma janela de saída
+    # Show the video image in a window
     cv2.imshow('Video', frame)
 
-    # Se o botão Q for pressionado, cancela a execução
+    # If Q is pressed, stops the execution
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
