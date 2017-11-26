@@ -16,3 +16,7 @@ Make sure you have installed all the dependencies below:
 + Arduino IDE [[Website](https://www.arduino.cc/en/main/software)]
 
 ## How to use it:
++ Compile the [sketch.ino](https://github.com/fronchetti/Mineino/blob/master/sketch/sketch.ino) code on your Arduino
++ Open your Minecraft
++ Execute [arduino.py](https://github.com/fronchetti/Mineino/blob/master/arduino.py) and [webcam.py](https://github.com/fronchetti/Mineino/blob/master/webcam.py)
++ Enjoy your game!
