@@ -21,4 +21,4 @@ Make sure you have installed all the dependencies below:
 + Execute [arduino.py](https://github.com/fronchetti/Mineino/blob/master/arduino.py) and [webcam.py](https://github.com/fronchetti/Mineino/blob/master/webcam.py)
 + Enjoy your game!
 
-> NOTE: We've been testing this code on Ubuntu 16.04, feel free to open an issue if you can not use it on your operating system! External contributions are also well received, don't be shy.
+> NOTE: We've been testing this code on Ubuntu 16.04, feel free to open an issue if you can not use it on your operating system! External contributions are also welcome, don't be shy.
